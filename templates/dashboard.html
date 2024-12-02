@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remote Script Runner - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Remote Script Runner</h2>
+        <div class="form-group">
+            <label for="system">Select System:</label>
+            <select id="system">
+                {% for system in systems %}
+                <option value="{{ system }}">{{ system }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="script_path">Script Path:</label>
+            <input type="text" id="script_path" name="script_path">
+        </div>
+        <button onclick="executeScript()">Run Script</button>
+        <div id="output" class="output-container"></div>
+    </div>
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>
